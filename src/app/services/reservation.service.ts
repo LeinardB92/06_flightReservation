@@ -7,4 +7,13 @@ import { LoginService } from './login.service';
 })
 export class ReservationService {
 
+  private flightstUrl: string = "http://127.0.0.1:8000/flightServices/findFlight/";
+  private singleFlightUrl: string = "http://127.0.0.1:8000/flightServices/flights/";
+  private saveReservationUrl: string = "http://127.0.0.1:8000/flightServices/saveReservation/"
+
+  constructor(private http: HttpClient, private loginService: LoginService) { }
+
+  public getFlights(criteria : any){
+    return this.http.post(this.flightstUrl, criteria, this.loginService.httpOptions);
+  }
 }
