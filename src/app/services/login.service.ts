@@ -12,7 +12,7 @@ export class LoginService {
   constructor(private http: HttpClient) {
     this.httpOptions = {
       headers : new HttpHeaders({
-        'Content-Type' : 'aplication/json'
+        'Content-Type' : 'application/json'
       })
     }
    }
@@ -23,10 +23,10 @@ export class LoginService {
       "password": "test1234%"
     };
     this.http.post('http://127.0.0.1:8000/api-token-auth/',JSON.stringify(user),this.httpOptions)
-    .subscribe(data => {
+    .subscribe((data: any) => {
       this.httpOptions = {
         headers : new HttpHeaders({
-          'Content-Type' : 'aplication/json',
+          'Content-Type' : 'application/json',
           'Authorization' : 'Token ' + data['token']
         })
       }
