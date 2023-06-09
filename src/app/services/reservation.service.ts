@@ -9,7 +9,8 @@ export class ReservationService {
 
   private flightstUrl: string = "http://127.0.0.1:8000/flightServices/findFlight/";
   private singleFlightUrl: string = "http://127.0.0.1:8000/flightServices/flights/";
-  private saveReservationUrl: string = "http://127.0.0.1:8000/flightServices/saveReservation/"
+  private saveReservationUrl: string = "http://127.0.0.1:8000/flightServices/saveReservation/";
+  public flightData: any;
 
   constructor(private http: HttpClient, private loginService: LoginService) { }
 

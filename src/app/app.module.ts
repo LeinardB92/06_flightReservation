@@ -7,6 +7,7 @@ import { FindFlightsComponent } from './components/find-flights/find-flights.com
 import { DisplayFlightsComponent } from './components/display-flights/display-flights.component';
 import { PassengerDetailsComponent } from './components/passenger-details/passenger-details.component';
 import { ConfirmComponent } from './components/confirm/confirm.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ConfirmComponent } from './components/confirm/confirm.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
