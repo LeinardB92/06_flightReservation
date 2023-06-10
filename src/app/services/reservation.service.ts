@@ -18,7 +18,7 @@ export class ReservationService {
     return this.http.post(this.flightstUrl, criteria, this.loginService.httpOptions);
   }
 
-  public getFlight(id : number): any{
+  public getFlight(id : number ): any{
     return this.http.get(this.singleFlightUrl + id, this.loginService.httpOptions);
   }
 
