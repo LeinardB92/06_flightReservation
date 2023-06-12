@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoginService } from './login.service';
+import { Reservation } from '../model/reservation';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,8 @@ export class ReservationService {
     return this.http.get(this.singleFlightUrl + id, this.loginService.httpOptions);
   }
 
-  public saveReservation(reservation: any): any{
+  // Registrar un nuevo pasajero
+  public saveReservation(reservation: Reservation): any{
     return this.http.post(this.saveReservationUrl, reservation, this.loginService.httpOptions);
   }
 }

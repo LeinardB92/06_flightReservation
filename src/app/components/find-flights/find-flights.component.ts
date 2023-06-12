@@ -26,7 +26,7 @@ export class FindFlightsComponent implements OnInit {
     this.reservationService.getFlights(this.criteria)
       .subscribe(resp => {
         this.reservationService.flightData = resp;
-        console.log(resp);
+        console.log("flightData", resp);
         this.router.navigate(['/displayFlights']);
       })
   }

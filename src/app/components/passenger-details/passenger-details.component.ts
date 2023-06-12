@@ -10,7 +10,7 @@ import { Reservation } from 'src/app/model/reservation';
 })
 export class PassengerDetailsComponent implements OnInit{
 
-  public flightData :any;
+  public data :any;
   public reservation : Reservation = new Reservation('','','','','','','','','');
 
   constructor(
@@ -21,16 +21,26 @@ export class PassengerDetailsComponent implements OnInit{
 
   ngOnInit(): void {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
+    console.log(typeof(id), id)
     if (id !== null) {
       this.reservationService.getFlight(Number.parseInt(id))
-        .subscibe((resp : any) => {this.flightData = resp});
+        .subscribe((resp : any) => {
+          this.data = resp;
+          console.log(resp)
+        });
     }
   }
 
   public onSubmit(){
-    this.reservation.flightId = this.flightData.id;
+    // Con fightId el backend podrá obtener el vuelo correspondiente, con saveReservation(this.reservation)
+    this.reservation.flightId = this.data.id;
+    console.log(this.reservation.flightId)
+
     this.reservationService.saveReservation(this.reservation)
-      .subscribe((resp : any) => {this.router.navigate(['/confirm', resp.id])});
+      .subscribe((resp : any) => {
+        console.log('confirm',  resp)
+        this.router.navigate(['/confirm/'+ resp.id])
+      });
   }
 
 }
